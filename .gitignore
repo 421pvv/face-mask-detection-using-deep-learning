@@ -172,3 +172,73 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Environment directories
+venv/
+env/
+ENV/
+.env
+.venv
+env.bak/
+venv.bak/
+
+# Dataset files
+data/raw/
+data/processed/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.mp4
+*.csv
+!webapp/static/images/*.jpg
+!webapp/static/images/*.png
+!webapp/static/images/*.gif
+
+# Model files
+models/*.h5
+models/*.pb
+models/*.tflite
+models/*.weights
+
+# Large files
+*.hdf5
+*.pkl
+*.npz
+*.npy
+
+# Logs
+logs/
+*.log
+
+# Mac OS specific files
+.DS_Store
