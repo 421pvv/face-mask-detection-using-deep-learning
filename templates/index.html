@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}Face Mask Detection - Home{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+        <div class="app-header">
+            <h1 class="display-4 mb-3">Face Mask Detection</h1>
+            <p class="lead mb-5">
+                A deep learning-based application that detects whether people are wearing face masks properly,
+                improperly,
+                or not at all.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card shadow h-100">
+                    <div class="card-header py-3">
+                        <h5 class="mb-0">Live Webcam Detection</h5>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-text">
+                            Use your webcam for real-time face mask detection. The system will automatically detect
+                            faces
+                            and determine mask status.
+                        </p>
+                        <div class="mt-auto text-center">
+                            <a href="/livestream" class="btn btn-primary btn-lg">
+                                <i class="bi bi-camera-video"></i> Launch Webcam
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow h-100">
+                    <div class="card-header py-3">
+                        <h5 class="mb-0">Image Upload Detection</h5>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-text">
+                            Upload an image to detect face masks. The system will process the image and show detection
+                            results.
+                        </p>
+                        <form id="upload-form" enctype="multipart/form-data" class="mt-auto">
+                            <div class="mb-3">
+                                <input class="form-control" type="file" id="image-upload" name="image" accept="image/*">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-upload"></i> Upload & Detect
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="result-container" class="mt-4" style="display: none;">
+            <div class="card shadow">
+                <div class="card-header py-3">
+                    <h3 class="mb-0">Detection Result</h3>
+                </div>
+                <div class="card-body text-center p-0">
+                    <img id="result-image" class="img-fluid rounded" alt="Detection Result">
+                    <!-- Spinner and loading text will be inserted here by JavaScript -->
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="color-box bg-success me-2"></div>
+                                <span class="color-indicator-text">Properly Wearing Mask</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="color-box bg-danger me-2"></div>
+                                <span class="color-indicator-text">No Mask</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="color-box bg-warning me-2"></div>
+                                <span class="color-indicator-text">Mask Worn Incorrectly</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

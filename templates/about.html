@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}Face Mask Detection - About{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+        <div class="text-center mb-4">
+            <h1 class="display-5 mb-3">About This Project</h1>
+            <p class="lead">Learn about the technology and implementation details of this face mask detection system</p>
+        </div>
+
+        <div class="card shadow mb-4 about-section">
+            <div class="card-body">
+                <h2>Project Overview</h2>
+                <p>
+                    This face mask detection system uses deep learning to identify whether people are wearing face masks
+                    properly, improperly, or not at all. It can process both live video streams and uploaded images.
+                </p>
+
+                <h2>Technical Details</h2>
+                <p>
+                    The system is built using the following technologies:
+                </p>
+                <ul>
+                    <li><strong>Python 3.9</strong> - Core programming language</li>
+                    <li><strong>TensorFlow 2.12</strong> - Deep learning framework with Metal acceleration for M1/M2
+                        Macs</li>
+                    <li><strong>MobileNetV2</strong> - Convolutional neural network architecture</li>
+                    <li><strong>OpenCV</strong> - Computer vision library for face detection and image processing</li>
+                    <li><strong>Flask</strong> - Web framework for the application</li>
+                    <li><strong>Bootstrap 5</strong> - UI framework</li>
+                </ul>
+
+                <h2>Model Architecture</h2>
+                <p>
+                    The mask detection model is based on the MobileNetV2 architecture with transfer learning. The model
+                    was
+                    pre-trained on ImageNet and then fine-tuned on our face mask dataset. This approach provides an
+                    excellent
+                    balance between accuracy and performance, making it suitable for real-time applications.
+                </p>
+
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h5 class="mb-0">Training History</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <img src="{{ url_for('static', filename='images/training_history.png') }}"
+                                    class="img-fluid" alt="Training History">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <h5 class="mb-0">Confusion Matrix</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <img src="{{ url_for('static', filename='images/confusion_matrix.png') }}"
+                                    class="img-fluid" alt="Confusion Matrix">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Performance</h2>
+                <p>
+                    The model achieves <b>97.83%</b> validation accuracy with the following metrics:
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Class</th>
+                                <th>Precision</th>
+                                <th>Recall</th>
+                                <th>F1-Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>With Mask</td>
+                                <td>0.96</td>
+                                <td>0.98</td>
+                                <td>0.97</td>
+                            </tr>
+                            <tr>
+                                <td>Without Mask</td>
+                                <td>0.99</td>
+                                <td>0.96</td>
+                                <td>0.98</td>
+                            </tr>
+                            <tr>
+                                <td>Mask Worn Incorrectly</td>
+                                <td>0.99</td>
+                                <td>0.99</td>
+                                <td>0.99</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow about-section">
+            <div class="card-body">
+                <h2>Usage Instructions</h2>
+
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h3 class="h5 mb-0">Live Detection</h3>
+                            </div>
+                            <div class="card-body">
+                                <ol>
+                                    <li>Navigate to the "Live Detection" page</li>
+                                    <li>Allow camera access when prompted</li>
+                                    <li>Position yourself in front of the camera</li>
+                                    <li>The system will automatically detect and classify your mask wearing status</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <h3 class="h5 mb-0">Image Upload</h3>
+                            </div>
+                            <div class="card-body">
+                                <ol>
+                                    <li>On the home page, use the "Image Upload" card</li>
+                                    <li>Click "Choose File" to select an image from your device</li>
+                                    <li>Click "Upload & Detect" to process the image</li>
+                                    <li>View the results displayed below</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="mt-4">System Requirements</h2>
+                <p>
+                    For optimal performance, this application is recommended to run on:
+                </p>
+                <ul>
+                    <li><strong>macOS</strong> with Apple Silicon (M1/M2)</li>
+                    <li><strong>Python 3.9</strong> with TensorFlow Metal acceleration</li>
+                    <li>At least 4GB RAM</li>
+                    <li>Webcam for live detection</li>
+                </ul>
+                <p>
+                    The application can also run on other systems but may require adjustments to the TensorFlow
+                    dependencies.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
